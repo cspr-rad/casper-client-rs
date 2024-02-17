@@ -22,7 +22,7 @@ doc = false
 [dependencies]
 async-trait = "0.1.59"
 base16 = "0.2.1"
-casper-types = { git = "https://github.com/jonas089/casper-node", branch="feat-2.0", features=["std"]}
+casper-types = { git = "https://github.com/jonas089/casper-node", branch="feat-2.0", rev = "9c65f797af7f73c7be8de83ff194fd39dbe7549f", features=["std"]}
 clap = { version = "4", features = ["cargo", "deprecated", "wrap_help"] }
 clap_complete = "4"
 hex-buffer-serde = "0.4.0"
