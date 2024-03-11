@@ -434,7 +434,7 @@ mod transaction {
     use super::*;
     use crate::Error::TransactionBuild;
     use casper_types::{
-        bytesrepr::Bytes, PackageAddr, TransactionEntryPoint, TransactionInvocationTarget,
+        bytesrepr::{Bytes, FromBytes}, PackageAddr, TransactionEntryPoint, TransactionInvocationTarget,
         TransactionRuntime, TransactionSessionKind, TransactionTarget, TransactionV1BuilderError,
     };
     const SAMPLE_TRANSACTION: &str = r#"{
@@ -807,10 +807,10 @@ mod transaction {
 
     #[test]
     fn should_create_invocable_entity_transaction() {
-        let entity_addr: EntityAddr = vec![0u8; 32].as_slice().try_into().unwrap();
+        let entity_addr: EntityAddr = EntityAddr::from_vec(vec![0u8; 32]).unwrap().0;
         let entry_point = String::from("test-entry-point");
         let target = &TransactionTarget::Stored {
-            id: TransactionInvocationTarget::InvocableEntity(entity_addr),
+            id: TransactionInvocationTarget::InvocableEntity([0u8; 32]),
             runtime: TransactionRuntime::VmCasperV1,
         };
 
