@@ -18,7 +18,7 @@ use crate::{
 ///
 /// Note: this should be kept in sync with the value of `[deploys.max_deploy_size]` in the
 /// production chainspec.
-pub const MAX_SERIALIZED_SIZE_OF_DEPLOY: u32 = 1_024 * 1_024;
+pub const MAX_SERIALIZED_SIZE_OF_DEPLOY: u32 = 3_072 * 1_024;
 
 /// A cryptographic hash uniquely identifying a [`Deploy`].
 #[derive(
